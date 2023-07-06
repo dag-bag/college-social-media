@@ -14,6 +14,9 @@ module.exports = {
         'fill-sm': 'repeat(auto-fit, minmax(160px, 1fr))',
       },
       colors: {
+        purple: {
+          0: '#86579F'
+        },
         primary: {
           0: 'white',
           50: '#fafafa',

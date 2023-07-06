@@ -12,6 +12,8 @@ import HomeFallbackCard from '@/components/home/home-fallback-card';
 import HomePostIput from '@/components/home/home-post-input';
 import { authOptions } from './api/auth/[...nextauth]';
 
+import PostInputNew from '@/components/post-input-new';
+
 const Home: NextPage = () => {
   const {
     closeShowcasedPost,
@@ -30,7 +32,15 @@ const Home: NextPage = () => {
       </Head>
       <MainLayout>
         <HomePostIput />
-        <PostsSortPanel pathname="/" />
+
+
+        <div className='px-2 py-5'>
+          <PostInputNew />
+
+        </div>
+
+
+        {/* <PostsSortPanel pathname="/" /> */}
         {isPostsNotExists ? (
           <HomeFallbackCard />
         ) : (

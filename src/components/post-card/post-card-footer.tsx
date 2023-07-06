@@ -14,6 +14,9 @@ import HeartIcon from '@/components/common/icons/heart';
 import HeartEmptyIcon from '@/components/common/icons/heart-empty';
 import PostSharingModal from './post-sharing-modal';
 
+
+import { AiOutlineMessage, AiOutlineDelete } from 'react-icons/ai';
+
 interface PostCardFooterProps {
   post: PostDetailsType;
 }
@@ -56,7 +59,7 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
 
   return (
     <>
-      <div className="flex items-center mt-5">
+      <div className="flex items-center  pt-2 border-t border-gray-200">
         <button
           type="button"
           className={clsx([
@@ -68,6 +71,20 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
           {post.likedByMe ? <HeartIcon /> : <HeartEmptyIcon />}
           <p className="ml-2">{post.likesCount}</p>
         </button>
+
+
+        <button
+          type="button"
+          className={clsx(
+            'flex items-center cursor-pointer w-fit opacity-80 ml-5 hover:opacity-50 transition-opacity',
+            post.sharedByMe && 'text-green-600'
+          )}
+          onClick={toggleIsSharing}
+        >
+          <AiOutlineMessage size={22} className={clsx(post.sharedByMe && 'fill-green-600')} />
+          <p className="ml-2">{post.commentsCount}</p>
+        </button>
+
         <button
           type="button"
           className={clsx(
@@ -77,25 +94,23 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
           onClick={toggleIsSharing}
         >
           <ShareIcon className={clsx(post.sharedByMe && 'fill-green-600')} />
-          <p className="ml-2">{post.sharesCount}</p>
         </button>
+
         <button
           type="button"
-          className="flex items-center cursor-pointer w-fit opacity-80 ml-5 hover:opacity-50 transition-opacity"
+          className="flex ml-auto items-center cursor-pointer w-fit opacity-80 hover:opacity-50 transition-opacity"
           onClick={handleToggleBookmark}
         >
           {post.bookmarkedByMe ? <BookmarkEmptyIcon /> : <BookmarkIcon />}
         </button>
-        <div className="font-medium text-xs text-gray-400 dark:text-primary-dark-600 ml-auto w-fit hover:underline">
-          <p>{post.commentsCount} Comments</p>
-        </div>
+
         {me.id === post.userId && (
           <button
             type="button"
             onClick={handleRemovePost}
             className="ml-3 font-medium text-xs text-red-400 hover:text-red-500 transition-colors"
           >
-            delete
+            <AiOutlineDelete size={28} />
           </button>
         )}
       </div>
@@ -111,3 +126,5 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
 };
 
 export default PostCardFooter;
+
+

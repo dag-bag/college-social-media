@@ -11,12 +11,16 @@ import CommunityBadge from './community-badge';
 import MentionsList from './mentions-list';
 import PostCardLink from './post-card-link';
 import RepostBadge from './repost-badge';
+import ReactTimeAgo from 'react-time-ago';
 
 export interface PostCardProps {
   post: PostDetailsType;
 }
 
 const PostCard = ({ post }: PostCardProps) => {
+
+  console.log(post)
+
   const router = useRouter();
 
   const basePath = router.asPath.split('?')[0];
@@ -48,10 +52,10 @@ const PostCard = ({ post }: PostCardProps) => {
           goToPostDetails();
         }
       }}
-      className=" bg-primary-0 dark:bg-primary-dark-200 w-full p-5 shadow-sm rounded-lg cursor-pointer "
+      className=" bg-primary-0 dark:bg-primary-dark-200 w-full p-2 shadow-sm rounded-lg cursor-pointer "
       onClick={goToPostDetails}
     >
-      <div className="lg:flex ml-14 space-y-2 lg:space-y-0 lg:space-x-5 items-baseline">
+      {/* <div className="lg:flex ml-14 space-y-2 lg:space-y-0 lg:space-x-5 items-baseline">
         {post.communityId && post.communityName && (
           <CommunityBadge
             communityId={post.communityId}
@@ -84,8 +88,44 @@ const PostCard = ({ post }: PostCardProps) => {
           )}
         </div>
         <MentionsList mentions={post.mentions} />
-        <PostCardFooter post={post} />
+      </div> */}
+
+
+      <div className='grid grid-cols-[50px_auto]'>
+        <div>
+
+
+          <div className='w-[40px] h-[40px] bg-red-500 rounded-full overflow-hidden'>
+            <img src={post.user.image as string} alt="user-omage" />
+          </div>
+
+        </div>
+        <div>
+
+
+          <header className='mb-2'>
+            <h2 className='font-[500] text-[15px]'>{post.user.name}</h2>
+            <div className='text-[13px] font-[500] text-gray-500'>
+              <span>@{post.user.id}</span> ● <span> <ReactTimeAgo date={post.createdAt} /></span>
+            </div>
+          </header>
+
+          <main>
+            <p className='text-sm mb-2'>{post.content}</p>
+            <ImagesGrid images={post.images} />
+          </main>
+
+          <PostCardFooter post={post} />
+
+
+        </div>
       </div>
+
+
+
+
+
+
     </div>
   );
 };

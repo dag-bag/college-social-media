@@ -6,7 +6,8 @@ import { useSession } from 'next-auth/react';
 import clsx from 'clsx';
 import { useNotificationsCountQuery } from '@/hooks/query';
 import DropdownMenu from './dropdown-menu';
-import CaretDownIcon from '../common/icons/caret-down';
+import { FaUserAlt } from "react-icons/fa"
+
 
 const Menu = () => {
   const router = useRouter();
@@ -50,7 +51,6 @@ const Menu = () => {
             isDropdownShow && 'rotate-180'
           )}
         >
-          <CaretDownIcon />
         </div>
         <Image
           layout="fixed"
@@ -61,6 +61,7 @@ const Menu = () => {
           height="40"
           className="rounded-full"
         />
+
         {!!notificationCount && (
           <div>
             <div className="animate-ping w-3 h-3 bg-red-500 absolute rounded-full right-0 top-0" />
