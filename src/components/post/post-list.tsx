@@ -43,7 +43,7 @@ const PostList = ({ data, fetchNextPage, hasNextPage }: PostListProps) => {
     );
 
   return (
-    <div className="space-y-5 mb-10">
+    <div className="space-y-5">
       {data.pages.map((page) => (
         <Fragment key={page.nextCursor || 'page'}>
           {page.posts.map((post) => (
