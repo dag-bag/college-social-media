@@ -44,16 +44,16 @@ const PostCard = ({ post }: PostCardProps) => {
 
   return (
     <div
-      role="link"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.target !== e.currentTarget) return;
-        if (e.code === 'Enter') {
-          goToPostDetails();
-        }
-      }}
+      // role="link"
+      // tabIndex={0}
+      // onKeyDown={(e) => {
+      //   if (e.target !== e.currentTarget) return;
+      //   if (e.code === 'Enter') {
+      //     goToPostDetails();
+      //   }
+      // }}
       className=" bg-primary-0 dark:bg-primary-dark-200 w-full p-2 shadow-sm rounded-lg cursor-pointer "
-      onClick={goToPostDetails}
+    // onClick={goToPostDetails}
     >
       {/* <div className="lg:flex ml-14 space-y-2 lg:space-y-0 lg:space-x-5 items-baseline">
         {post.communityId && post.communityName && (

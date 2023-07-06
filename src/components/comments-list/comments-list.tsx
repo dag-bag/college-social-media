@@ -45,19 +45,19 @@ const CommentsList = ({
       className={clsx([
         'w-full ',
         depth !== 0 &&
-          'pl-5 md:pl-10 border-l-2 border-l-neutral-300 dark:border-l-primary-dark-300',
+        'pl-5 md:pl-10 border-l-2 border-l-neutral-300 dark:border-l-primary-dark-300',
         depth > 3 && '!pl-0 border-l-0',
       ])}
     >
       {commentsWithCurrentDepth.map((comment) => (
         <div key={comment.id}>
           <CommentItem comment={comment} parentUserName={parentUserName} />
-          <CommentsList
+          {/* <CommentsList
             comments={comments}
             parentId={comment.id}
             parentUserName={comment.user.name}
             depth={depth + 1}
-          />
+          /> */}
         </div>
       ))}
     </div>

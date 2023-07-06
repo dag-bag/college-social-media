@@ -1,8 +1,5 @@
 import { useSession } from 'next-auth/react';
 import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-import Button from '../common/button';
-
 interface CommentInputProps {
   onMessageSubmit: (message: string) => void;
 }
@@ -10,7 +7,7 @@ interface CommentInputProps {
 const CommentInput = ({ onMessageSubmit }: CommentInputProps) => {
   const { data } = useSession();
   const [commentMessageValue, setCommentMessageValue] = useState('');
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const textareaRef = useRef<HTMLInputElement | null>(null);
 
   const submitDisabled = !commentMessageValue.length;
 
@@ -32,36 +29,21 @@ const CommentInput = ({ onMessageSubmit }: CommentInputProps) => {
 
   return (
     <form
-      className="w-full flex rounded-lg my-5 relative"
+      className="w-full grid grid-cols-[4fr_1fr] rounded-lg my-5"
       onSubmit={handleOnSubmit}
     >
-      <div className="shrink-0 w-10 h-10 relative mr-3">
-        <Image
-          src={me.image || '/images/avatar-fallback.svg'}
-          width="40"
-          height="40"
-          layout="fixed"
-          alt=""
-          className="rounded-lg"
-          objectFit="cover"
-        />
-      </div>
 
-      <textarea
+      <input
+
         ref={textareaRef}
         placeholder="Add your comment"
-        className="bg-blue-50 dark:bg-primary-dark-100 w-full rounded-lg placeholder:text-sm pl-2 pr-20 bg-transparent pt-3 h-10 max-h-40 min-h-[40px]"
         value={commentMessageValue}
         onChange={({ target }) => setCommentMessageValue(target.value)}
-      />
-      <Button
-        type="submit"
-        className="self-center absolute right-1 bottom-1"
-        isSmall
-        disabled={submitDisabled}
-      >
-        Submit
-      </Button>
+
+        className='border-2  py-3' type="text" />
+
+      <button className='font-[400]' type='submit' disabled={submitDisabled}>Post</button>
+
     </form>
   );
 };
