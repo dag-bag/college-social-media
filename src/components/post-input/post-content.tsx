@@ -31,7 +31,8 @@ const PostContent = ({ register, content, disabled }: PostContentProps) => {
           textareaRef.current = e;
         }}
         disabled={disabled}
-        className="pb-5 bg-primary-100  rounded-lg w-full placeholder:text-sm pl-2 min-h-[120px] max-h-[300px] block mb-3 dark:bg-primary-dark-300"
+        placeholder='Create a post...'
+        className="pb-5 bg-primary-100 border-none outline-none  rounded-lg w-full placeholder:text-sm pl-2 min-h-[120px] max-h-[300px] block mb-3  text-sm p-2"
       />
       <LetterCounter currentLength={contentLength} maxLength={280} />
     </div>

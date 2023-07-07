@@ -21,7 +21,6 @@ const MyApp: AppType = ({
 }) => (
   <SessionProvider session={session}>
     <Component {...pageProps} />
-    <ReactQueryDevtools initialIsOpen={false} />
   </SessionProvider>
 );
 

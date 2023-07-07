@@ -31,12 +31,9 @@ const Home: NextPage = () => {
         <meta property="og:title" content="Twitterek" />
       </Head>
       <MainLayout>
-        <HomePostIput />
 
-
-        <div className='px-2 py-5'>
+        <div className='px-2 mt-5'>
           <PostInputNew />
-
         </div>
 
 
