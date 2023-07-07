@@ -43,35 +43,16 @@ const CommentItem = ({ comment, parentUserName }: CommentitemProps) => {
     <>
       <div
         className="bg-gray-50 gap-x-3 p-2 rounded-lg mb-3 dark:bg-primary-dark-100"
-        id={`comment-${comment.id}`}
-      >
-        {/* <Author
-          authorId={comment.userId}
-          authorImage={comment.user.image}
-          authorName={comment.user.name}
-          postCreatedAt={comment.createdAt}
-        />
-        <CommentContent
-          commentMessage={comment.message}
-          draftContent={draftContent}
-          handleUpdateComment={handleUpdateComment}
-          isEditing={isEditing}
-          onChangeDraftContent={onChangeDraftContent}
-          parentUserName={parentUserName}
-        />
-        <CommentFooter
-          comment={comment}
-          toggleIsEditing={toggleIsEditing}
-          toggleIsReplying={toggleIsReplying}
-        /> */}
+        id={`comment-${comment.id}`}>
+
 
         <div className='w-full grid grid-cols-[50px_auto_50px]'>
           <div className='rouded-full overflow-hidden'>
             <UserProfilePicture imageUrl={comment.user.image} userID={comment.userId} />
           </div>
-          <div className=''>
+          <div>
             <header className='flex gap-5 items-center '>
-              <h2 className='font-[500] text-[15px]'>{comment.user.name}</h2>
+              <h2 className='font-bold text-[15px]'>{comment.user.name}</h2>
               <span className='text-[13px]'> <ReactTimeAgo date={comment.createdAt} /></span>
             </header>
             <main className='text-sm'>{comment.message}</main>

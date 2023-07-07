@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+        Rubik: ['Rubil', 'sans serif']
       },
       gridTemplateColumns: {
         fill: 'repeat(auto-fit, minmax(250px, 1fr))',

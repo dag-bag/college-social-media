@@ -29,7 +29,7 @@ const CommentInput = ({ onMessageSubmit }: CommentInputProps) => {
 
   return (
     <form
-      className="w-full grid grid-cols-[4fr_1fr] rounded-lg my-5"
+      className="w-full grid grid-cols-[4fr_1fr] rounded-lg my-5 "
       onSubmit={handleOnSubmit}
     >
 
@@ -40,7 +40,7 @@ const CommentInput = ({ onMessageSubmit }: CommentInputProps) => {
         value={commentMessageValue}
         onChange={({ target }) => setCommentMessageValue(target.value)}
 
-        className='border-2  py-3' type="text" />
+        className='border-2  py-4 px-2 rounded-md' type="text" />
 
       <button className='font-[400]' type='submit' disabled={submitDisabled}>Post</button>
 

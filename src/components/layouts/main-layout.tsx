@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import Header from '../header/header';
 import BackButton from '../common/back-button';
 import SuggestionList from '../community/suggestion-list';
+import { resolveObjectURL } from 'buffer';
 
 interface LayoutProps {
   children: ReactNode;
@@ -31,3 +32,11 @@ const MainLayout = ({ children }: LayoutProps) => (
 );
 
 export default MainLayout;
+
+
+
+const Footer = () => {
+  return (
+    <div></div>
+  )
+}

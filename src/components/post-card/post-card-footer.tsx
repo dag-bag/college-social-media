@@ -21,13 +21,20 @@ import Loading from '../common/loading';
 
 import CommentInput from '../comments-list/comment-input';
 import { useAddCommentMutation } from 'src/hooks/mutation';
+
+import { FiCopy } from "react-icons/fi"
+import { GoAlert } from "react-icons/go"
 interface PostCardFooterProps {
   post: PostDetailsType;
 }
 
+import { Dialog } from '@headlessui/react';
+
 const PostCardFooter = ({ post }: PostCardFooterProps) => {
 
   const [comment, setComments] = useState(false)
+
+  const [isOpen, setIsOpen] = useState(false)
 
   const { data: comments, isSuccess: isCommentsSuccess } =
     usePostCommentsQuery(post.id);
@@ -56,8 +63,7 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
 
 
   const handleToggleMessages = () => {
-    console.log("here")
-    setComments(!comment)
+    setIsOpen(!open)
   }
 
   const handleToggleLike = (e: React.MouseEvent) => {
@@ -85,7 +91,40 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
   return (
     <>
 
-      {comment && <div
+
+      <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-50 flex items-end justify-center'} open={isOpen} onClose={() => setIsOpen(false)}>
+        <Dialog.Panel >
+
+          <div className='bg-white  w-screen rounded-t-xl h-[600px] grid grid-rows-[40px_460px_100px]  py-3  overflow-hidden ' >
+
+            <header className=' rounded-t-xl bg-transparent flex items-center bg-red-500-- flex-col  border-gray-200 border-b pb-2'>
+
+              <p className='font-semibold'>{comments?.length} Comments</p>
+            </header>
+
+
+            <main className='px-2 mt-2 overflow-y-scroll' >
+
+              {isCommentsSuccess ? (
+                <CommentsList comments={comments} />
+              ) : (
+                <Loading height={200} />
+              )}
+
+            </main>
+
+            <footer className='px-5'>
+              <CommentInput onMessageSubmit={handleAddComment} />
+            </footer>
+
+          </div>
+
+        </Dialog.Panel>
+      </Dialog>
+
+
+
+      {/* {comment && <div
 
         className="fixed top-0 left-0 w-full h-full bg-black z-50 bg-opacity-80 flex items-end ">
         <div className='bg-white w-full h-[90%] rounded-t-xl overflow-hidden'>
@@ -118,9 +157,9 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
         </div>
 
 
-      </div >}
+      </div >} */}
 
-      <div className="flex items-center  pt-2 border-t border-gray-200">
+      <div className="flex items-center  pt-2 pr-2 border-t border-gray-200">
         <button
           type="button"
           className={clsx([
@@ -137,7 +176,7 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
         <button
           type="button"
           className={'flex items-center cursor-pointer w-fit opacity-80 ml-5 hover:opacity-50 transition-opacity'}
-          onClick={handleToggleMessages}
+          onClick={() => { setIsOpen(true) }}
         >
           <AiOutlineMessage size={22} className={clsx(post.sharedByMe && 'fill-green-600')} />
           <p className="ml-2">{post.commentsCount}</p>

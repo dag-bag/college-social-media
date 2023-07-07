@@ -70,12 +70,12 @@ const PostCard = ({ post }: PostCardProps) => {
       <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-50 flex items-center justify-center'} open={isOpen} onClose={() => setIsOpen(false)}>
         <Dialog.Panel >
 
-          <div className='bg-white min-w-[300px] mx-auto rounded-md grid p-3' >
-            <button className=' flex items-center  gap-2 mb-3 '><FiCopy />Copy post link</button>
+          <div className='bg-white w-[95vw] mx-auto rounded-md grid p-3' >
+            <button className=' flex items-center  gap-2 mb-3'><FiCopy />Copy post link</button>
             <button onClick={() => {
               setIsOpen(false);
               setIsOpen2(true)
-            }} className=' flex items-center  gap-2 '><GoAlert />Report post</button>
+            }} className=' flex items-center  gap-2'><GoAlert />Report post</button>
           </div>
 
         </Dialog.Panel>
@@ -84,8 +84,8 @@ const PostCard = ({ post }: PostCardProps) => {
       <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-[100] flex items-center justify-center'} open={isOpen2} onClose={() => setIsOpen2(false)}>
         <Dialog.Panel >
 
-          <div className='bg-white min-w-[99%]  max-w-[99%] mx-auto rounded-md grid px-5 py-3' >
-            <h2 className='font-medium mb-2 text-lg p-b'>Why are you reporting this post?</h2>
+          <div className='bg-white w-[95vw] mx-auto rounded-md grid px-5 py-3' >
+            <h2 className='font-bold mb-2 text-lg p-b'>Why are you reporting this post?</h2>
             <div className='grid gap-2'>
               {reports.map(rep => (
                 <div onClick={() => { setReport(rep) }} className='flex items-center gap-2.5 '>
@@ -121,7 +121,7 @@ const PostCard = ({ post }: PostCardProps) => {
         //     goToPostDetails();
         //   }
         // }}
-        className=" bg-primary-0 dark:bg-primary-dark-200 w-full p-2 shadow-sm rounded-lg cursor-pointer "
+        className=" bg-primary-0  w-full p-2 rounded-lg cursor-pointer border-2 border-gray-100 "
       // onClick={goToPostDetails}
       >
         {/* <div className="lg:flex ml-14 space-y-2 lg:space-y-0 lg:space-x-5 items-baseline">
@@ -174,17 +174,17 @@ const PostCard = ({ post }: PostCardProps) => {
 
             <header className='flex gap-5 justify-between'>
               <div>
-                <h2 className='font-[500] text-[15px]'>{post.user.name}</h2>
-                <div className='text-[13px] font-[500] text-gray-500'>
-                  <span>@{post.user.id}</span> ● <span> <ReactTimeAgo date={post.createdAt} /></span>
+                <h2 className=' font-extrabold text-[18px]'>{post.user.name}</h2>
+                <div className='text-[13px] font-[500] text-gray-500 gap-2 flex'>
+                  <span>@{post.user.name}</span> ● <span> <ReactTimeAgo date={post.createdAt} /></span>
                 </div>
               </div>
-              <button onClick={handleClickToggle} className='w-[30px] h-[30px]'>
+              <button onClick={handleClickToggle} className='w-[30px] h-[30px] bg-red-500-- flex items-center justify-center'>
                 <BsThreeDots />
               </button>
             </header>
 
-            <main>
+            <main className='mt-2'>
               <p className='text-sm mb-2'>{post.content}</p>
               <ImagesGrid images={post.images} />
             </main>
