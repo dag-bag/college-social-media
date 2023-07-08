@@ -22,8 +22,11 @@ import Loading from '../common/loading';
 import CommentInput from '../comments-list/comment-input';
 import { useAddCommentMutation } from 'src/hooks/mutation';
 
-import { FiCopy } from "react-icons/fi"
+import { FiCopy, FiShare2 } from "react-icons/fi"
 import { GoAlert } from "react-icons/go"
+
+import { FaRegCommentDots } from "react-icons/fa"
+
 interface PostCardFooterProps {
   post: PostDetailsType;
 }
@@ -92,7 +95,7 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
     <>
 
 
-      <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-50 flex items-end justify-center'} open={isOpen} onClose={() => setIsOpen(false)}>
+      <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-50 flex items-end justify-center '} open={isOpen} onClose={() => setIsOpen(false)}>
         <Dialog.Panel >
 
           <div className='bg-purple-100  w-screen rounded-t-xl h-[600px] grid grid-rows-[40px_460px_100px]  py-3  overflow-hidden ' >
@@ -125,46 +128,50 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
         </Dialog.Panel>
       </Dialog>
 
-      <div className="flex items-center  pt-2 pr-2 border-t border-gray-200">
+      <div className="items-center flex justify-around gap-2 py-3  border-b border-gray-200 text-purple-0 ">
         <button
           type="button"
           className={clsx([
             'flex items-center cursor-pointer w-fit hover:opacity-80 transition-opacity',
-            post.likedByMe && 'text-red-500',
+            post.likedByMe && '',
           ])}
           onClick={handleToggleLike}
         >
           {post.likedByMe ? <HeartIcon /> : <HeartEmptyIcon />}
-          <p className="ml-2">{post.likesCount}</p>
+          <p className="ml-2">Like</p>
         </button>
 
 
         <button
           type="button"
-          className={'flex items-center cursor-pointer w-fit opacity-80 ml-5 hover:opacity-50 transition-opacity'}
+          className={'flex items-center cursor-pointer w-fit   hover:opacity-50 transition-opacity'}
           onClick={() => { setIsOpen(true) }}
         >
-          <AiOutlineMessage size={22} className={clsx(post.sharedByMe && 'fill-green-600')} />
-          <p className="ml-2">{post.commentsCount}</p>
+          <FaRegCommentDots size={21} className={clsx(post.sharedByMe && 'fill-green-600')} />
+          <p className="ml-2">Comment</p>
         </button>
 
         <button
           type="button"
           className={clsx(
-            'flex items-center cursor-pointer w-fit opacity-80 ml-5 hover:opacity-50 transition-opacity',
+            'flex items-center cursor-pointer w-fit   hover:opacity-50 transition-opacity',
             post.sharedByMe && 'text-green-600'
           )}
           onClick={toggleIsSharing}
         >
-          <ShareIcon className={clsx(post.sharedByMe && 'fill-green-600')} />
+          <FiShare2 size={20} />
+          <p className="ml-2">Share</p>
+
         </button>
 
         <button
           type="button"
-          className="flex ml-auto items-center cursor-pointer w-fit opacity-80 hover:opacity-50 transition-opacity"
+          className="flex  items-center cursor-pointer w-fit  hover:opacity-50 transition-opacity"
           onClick={handleToggleBookmark}
         >
           {post.bookmarkedByMe ? <BookmarkEmptyIcon /> : <BookmarkIcon />}
+          <p className="ml-2">Save</p>
+
         </button>
 
         {me.id === post.userId && (

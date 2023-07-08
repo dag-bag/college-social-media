@@ -112,29 +112,28 @@ const PostCard = ({ post }: PostCardProps) => {
 
 
 
-      <div className=" bg-primary-0 text-purple-0  w-full p-2 rounded-lg cursor-pointer border-2 border-gray-100">
-        <div className='grid grid-cols-[50px_auto]'>
+      <div className=" bg-primary-0 text-purple-0  w-full  rounded-lg cursor-pointer ">
+        <div className='grid '>
           <div>
-            <div className='w-[40px] h-[40px] bg-red-500 rounded-full overflow-hidden'>
-              <img src={post.user.image as string} alt="user-omage" />
-            </div>
-
-          </div>
-          <div>
-            <header className='flex gap-5 justify-between'>
+            <header className='grid grid-cols-[40px_auto_50px] gap-2 px-2'>
+              <div>
+                <div className='w-[40px] h-[40px] bg-red-500 rounded-full overflow-hidden'>
+                  <img src={post.user.image as string} alt="user-omage" />
+                </div>
+              </div>
               <div>
                 <h2 className=' font-extrabold text-[18px]'>{post.user.name}</h2>
-                <div className='text-[13px] font-[500]  gap-2 flex'>
+                <div className='text-[12px] font-[500]  gap-2 flex'>
                   <span>@{post.user.name}</span> ● <span> <ReactTimeAgo date={post.createdAt} /></span>
                 </div>
               </div>
-              <button onClick={handleClickToggle} className='w-[30px] h-[30px] bg-red-500-- flex items-center justify-center'>
-                <BsThreeDots />
+              <button onClick={handleClickToggle} className='  bg-red-500-- flex items-center justify-center'>
+                <BsThreeDots size={20} />
               </button>
             </header>
 
             <main className='mt-2'>
-              <p className=' mb-2 '>{post.content}</p>
+              <p className='mb-2 px-2'>{post.content}</p>
               <ImagesGrid images={post.images} />
             </main>
 

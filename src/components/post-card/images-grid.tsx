@@ -52,7 +52,7 @@ const ImagesGrid = ({ images }: ImagesGridProps) => {
           layout="fill"
           src={image.fallbackUrl}
           objectFit="cover"
-          className="rounded-lg absolute"
+          className=" absolute"
           alt=""
         />
         <Image
@@ -61,7 +61,7 @@ const ImagesGrid = ({ images }: ImagesGridProps) => {
           height={image.height}
           src={image.url}
           objectFit="cover"
-          className="rounded-lg"
+          className=""
           alt=""
           sizes="700px"
         />
