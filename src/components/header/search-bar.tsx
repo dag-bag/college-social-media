@@ -45,7 +45,7 @@ const SearchBar = () => {
     });
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchPhrase(e.target.value);
+    setSearchPhrase(e.target.value.toLowerCase());
   };
 
   return (
