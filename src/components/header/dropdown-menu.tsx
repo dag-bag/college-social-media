@@ -10,8 +10,13 @@ import { useSession } from 'next-auth/react';
 
 
 
-
-
+import { FiUser, FiUsers, FiSettings, FiLogOut } from 'react-icons/fi';
+import { BsBuildings } from "react-icons/bs"
+import { SlDoc } from 'react-icons/sl'
+import { PiSuitcaseBold, PiUsersThreeBold } from 'react-icons/pi'
+import { MdOutlineFavoriteBorder } from 'react-icons/md'
+import { IoDocumentsOutline } from 'react-icons/io5'
+import { BiHelpCircle } from 'react-icons/bi'
 
 
 
@@ -34,20 +39,19 @@ const DropdownMenu = ({
 
 
   const Links = [
-    { name: "my profile", Icon: GrFormClose, href: `/user/${user?.id}` },
-    { name: "my company", Icon: GrFormClose, href: '/' },
-    { name: "my cvs", Icon: GrFormClose, href: '/' },
-    { name: "my job ads", Icon: GrFormClose, href: '/' },
-    { name: "my communities", Icon: GrFormClose, href: '/' },
-    { name: "my communities", Icon: GrFormClose, href: '/' },
-    { name: "my favorites", Icon: GrFormClose, href: '/' },
-    { name: "my documents", Icon: GrFormClose, href: '/' },
+    { name: "my profile", Icon: FiUser, href: `/user/${user?.id}` },
+    { name: "my company", Icon: BsBuildings, href: '/' },
+    { name: "my cvs", Icon: SlDoc, href: '/' },
+    { name: "my job ads", Icon: PiSuitcaseBold, href: '/' },
+    { name: "my communities", Icon: PiUsersThreeBold, href: '/' },
+    { name: "my favorites", Icon: MdOutlineFavoriteBorder, href: '/' },
+    { name: "my documents", Icon: IoDocumentsOutline, href: '/' },
   ]
 
   const Links2 = [
-    { name: "settings", Icon: GrFormClose, href: '/' },
-    { name: "help center", Icon: GrFormClose, href: '/' },
-    { name: "tell a friend", Icon: GrFormClose, href: '/' },
+    { name: "settings", Icon: FiSettings, href: '/' },
+    { name: "help center", Icon: BiHelpCircle, href: '/' },
+    { name: "tell a friend", Icon: FiUsers, href: '/' },
 
   ]
 
@@ -78,27 +82,32 @@ const DropdownMenu = ({
             Links.map(({ name, href, Icon }) => <li className="hover:bg-slate-100  dark:hover:bg-primary-dark-200 rounded-lg flex items-center">
               <Link href={href}>
                 <a className="px-3 py-2 w-full rounded-lg flex items-center">
-                  <Icon />
+                  <Icon size={20} />
                   <span className="ml-2 text-lg capitalize font-[500]">{name}</span>
                 </a>
               </Link>
             </li>)
           }
 
-          <hr className='mb-5 mt-2' />
+          <hr className='mb-3 mt-2' />
 
           {
 
             Links2.map(({ name, href, Icon }) => <li className="hover:bg-slate-100  dark:hover:bg-primary-dark-200 rounded-lg flex items-center">
               <Link href={href}>
                 <a className="px-3 py-2 w-full rounded-lg flex items-center">
-                  <Icon />
+                  <Icon size={20} />
                   <span className="ml-2 text-lg capitalize font-[500]">{name}</span>
                 </a>
               </Link>
             </li>)
 
           }
+
+          <a onClick={() => { signOut() }} className="px-3 py-2 w-full rounded-lg flex items-center">
+            <FiLogOut size={20} />
+            <span className="ml-2 text-lg capitalize font-[500]">Logout</span>
+          </a>
 
         </ul>
       </nav>

@@ -7,28 +7,12 @@ import GithubIcon from '@/components/common/icons/github';
 import Button from '@/components/common/button';
 import { useForm } from 'react-hook-form';
 
-const EMAIL_REGEX =
-  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 export interface SignInFormType {
   email: string;
 }
 
 export default function SignIn() {
-  const {
-    getValues,
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<SignInFormType>({
-    defaultValues: {
-      email: '',
-    },
-  });
-
-  const handleEmailSignIn = async () => {
-    await signIn('email', { email: getValues('email') });
-  };
 
   return (
     <div className="lg:grid grid-cols-2 min-h-screen bg-white dark:bg-transparent">
@@ -58,30 +42,7 @@ export default function SignIn() {
         </div>
 
         <div className="flex flex-col">
-          <form
-            onSubmit={handleSubmit(handleEmailSignIn)}
-            className="grid grid-cols-[1fr_auto] gap-5 mb-10"
-          >
-            <FormInput
-              name="email"
-              label="Email address"
-              register={register}
-              error={errors.email}
-              rules={{
-                required: {
-                  value: true,
-                  message: 'Email is required',
-                },
-                pattern: {
-                  value: EMAIL_REGEX,
-                  message: 'Entered value does not match email format',
-                },
-              }}
-            />
-            <Button type="submit" className="ml-auto mb-auto h-[46px]">
-              Login
-            </Button>
-          </form>
+
           <div className="flex flex-col space-y-5">
             <button
               type="button"
@@ -90,13 +51,7 @@ export default function SignIn() {
             >
               <GoogleIcon /> <span>Sign in with google</span>
             </button>
-            <button
-              type="button"
-              onClick={() => signIn('github')}
-              className="ring rounded-full flex items-center justify-center space-x-3 p-3 lg:text-lg"
-            >
-              <GithubIcon /> <span>Sign in with github</span>
-            </button>
+
           </div>
         </div>
       </div>
