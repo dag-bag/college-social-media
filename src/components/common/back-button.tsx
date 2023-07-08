@@ -14,10 +14,10 @@ const BackButton = () => {
     <button
       type="button"
       onClick={onClickBack}
-      className="my-3 text-sm font-poppins font-semibold flex items-center fill-blue-500 hover:fill-blue-400"
+      className="my-3 px-2  text-sm font-poppins font-semibold flex items-center fill-purple-0 text-purple-0 "
     >
       <ArrowLeftIcon width={16} height={16} />
-      <p className="ml-2 text-blue-500 hover:text-blue-400">Back</p>
+      <p className="ml-2">Home</p>
     </button>
   );
 };

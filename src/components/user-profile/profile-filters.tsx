@@ -26,7 +26,7 @@ const Filters = ({ filters }: ProfileFiltersProps) => {
           width: `${(1 / filters.length) * 100}%`,
         }}
       >
-        <div className="w-24 h-1 rounded-b-md left-1/2 -translate-x-1/2 bg-blue-500 absolute" />
+        <div className="w-24 h-1 rounded-b-md left-1/2 -translate-x-1/2 bg-purple-0 absolute" />
       </div>
       {filters.map((filter) => (
         <ProfileFilterItem

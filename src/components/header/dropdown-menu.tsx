@@ -72,21 +72,17 @@ const DropdownMenu = ({
           }}><GrFormClose size={30} /></button>
 
         </div>
-
         <ul className='p-5'>
-
-
           {
 
             Links.map(({ name, href, Icon }) => <li className="hover:bg-slate-100  dark:hover:bg-primary-dark-200 rounded-lg flex items-center">
-              <Link href={`user/${userId}`}>
+              <Link href={href}>
                 <a className="px-3 py-2 w-full rounded-lg flex items-center">
                   <Icon />
                   <span className="ml-2 text-lg capitalize font-[500]">{name}</span>
                 </a>
               </Link>
             </li>)
-
           }
 
           <hr className='mb-5 mt-2' />

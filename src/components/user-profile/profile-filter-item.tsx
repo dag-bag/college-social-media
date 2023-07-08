@@ -21,8 +21,8 @@ const ProfileFilterItem = ({
     <Link href={href} shallow scroll={false} replace>
       <a
         className={clsx(
-          'block p-5 hover:opacity-80 relative w-full text-center my-auto',
-          selectedFilter === filterName && '!text-blue-500'
+          'block p-5 hover:opacity-80 relative w-full text-center my-auto  capitalize',
+          selectedFilter === filterName && '!text-purple-0'
         )}
       >
         {displayText}

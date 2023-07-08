@@ -37,7 +37,7 @@ const useUser = () => {
     {
       id: '1',
       filterName: undefined,
-      displayName: 'posts & shares',
+      displayName: 'posts',
     },
     {
       id: '2',
