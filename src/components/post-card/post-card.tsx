@@ -70,12 +70,12 @@ const PostCard = ({ post }: PostCardProps) => {
       <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-50 flex items-center justify-center'} open={isOpen} onClose={() => setIsOpen(false)}>
         <Dialog.Panel >
 
-          <div className='bg-white w-[95vw] mx-auto rounded-md grid p-3' >
-            <button className=' flex items-center  gap-2 mb-3'><FiCopy />Copy post link</button>
+          <div className='bg-white w-[95vw] mx-auto rounded-md grid p-5 gap-2 text-purple-0' >
+            <button className=' flex items-center  gap-2 mb-3'><FiCopy size={20} />Copy post link</button>
             <button onClick={() => {
               setIsOpen(false);
               setIsOpen2(true)
-            }} className=' flex items-center  gap-2'><GoAlert />Report post</button>
+            }} className=' flex items-center  gap-2'><GoAlert size={20} />Report post</button>
           </div>
 
         </Dialog.Panel>
@@ -84,7 +84,7 @@ const PostCard = ({ post }: PostCardProps) => {
       <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-[100] flex items-center justify-center'} open={isOpen2} onClose={() => setIsOpen2(false)}>
         <Dialog.Panel >
 
-          <div className='bg-white w-[95vw] mx-auto rounded-md grid px-5 py-3' >
+          <div className='bg-white text-purple-0 w-[95vw] mx-auto rounded-md grid px-5 py-3' >
             <h2 className='font-bold mb-2 text-lg p-b'>Why are you reporting this post?</h2>
             <div className='grid gap-2'>
               {reports.map(rep => (
@@ -112,70 +112,19 @@ const PostCard = ({ post }: PostCardProps) => {
 
 
 
-      <div
-        // role="link"
-        // tabIndex={0}
-        // onKeyDown={(e) => {
-        //   if (e.target !== e.currentTarget) return;
-        //   if (e.code === 'Enter') {
-        //     goToPostDetails();
-        //   }
-        // }}
-        className=" bg-primary-0  w-full p-2 rounded-lg cursor-pointer border-2 border-gray-100 "
-      // onClick={goToPostDetails}
-      >
-        {/* <div className="lg:flex ml-14 space-y-2 lg:space-y-0 lg:space-x-5 items-baseline">
-        {post.communityId && post.communityName && (
-          <CommunityBadge
-            communityId={post.communityId}
-            communityName={post.communityName}
-          />
-        )}
-        {post.sharedBy.length > 0 && <RepostBadge users={post.sharedBy} />}
-      </div>
-      <div className="flex mt-2">
-        <Author
-          authorId={post.user.id}
-          authorImage={post.user.image}
-          authorName={post.user.name}
-          postCreatedAt={post.createdAt}
-        />
-      </div>
-      <div className="md:ml-14">
-        <TagsList tags={post.tags} />
-        <div className="relative">
-          <p className="mb-3 whitespace-pre-wrap overflow-hidden">
-            {post.content}
-          </p>
-          {post.link && <PostCardLink link={post.link} />}
-          <ImagesGrid images={post.images} />
-          {post.shareParent && (
-            <>
-              <div className="mt-3 h-1" />
-              <PostThumbnail sharedPost={post.shareParent} />
-            </>
-          )}
-        </div>
-        <MentionsList mentions={post.mentions} />
-      </div> */}
-
-
+      <div className=" bg-primary-0 text-purple-0  w-full p-2 rounded-lg cursor-pointer border-2 border-gray-100">
         <div className='grid grid-cols-[50px_auto]'>
           <div>
-
-
             <div className='w-[40px] h-[40px] bg-red-500 rounded-full overflow-hidden'>
               <img src={post.user.image as string} alt="user-omage" />
             </div>
 
           </div>
           <div>
-
-
             <header className='flex gap-5 justify-between'>
               <div>
                 <h2 className=' font-extrabold text-[18px]'>{post.user.name}</h2>
-                <div className='text-[13px] font-[500] text-gray-500 gap-2 flex'>
+                <div className='text-[13px] font-[500]  gap-2 flex'>
                   <span>@{post.user.name}</span> ● <span> <ReactTimeAgo date={post.createdAt} /></span>
                 </div>
               </div>
@@ -191,14 +140,8 @@ const PostCard = ({ post }: PostCardProps) => {
 
             <PostCardFooter post={post} />
 
-
           </div>
         </div>
-
-
-
-
-
 
       </div>
 

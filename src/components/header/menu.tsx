@@ -39,7 +39,7 @@ const Menu = () => {
   };
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className='text-purple-0'>
       <button
         type="button"
         className=" relative flex items-center"

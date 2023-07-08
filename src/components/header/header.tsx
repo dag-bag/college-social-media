@@ -12,13 +12,13 @@ import { AiFillQuestionCircle } from 'react-icons/ai'
 
 
 const Header = () => (
-  <div className="dark:bg-primary-dark-50  grid grid-cols-[50px_2fr_80px] bg-primary-50 px-3 py-2 md:py-3 md:px-5 sticky top-0 z-[10] shadow-md no-scroll-header">
+  <div className="  grid grid-cols-[50px_2fr_80px] bg-purple-0 text-white px-3 py-2 md:py-3 md:px-5 sticky top-0 z-[10] shadow-md no-scroll-header">
 
     <Menu></Menu>
 
 
     <div className='flex items-center justify-center '>
-      <h1 className='font-bold text-xl italic'>babila</h1>
+      <h1 className='font-bold text-3xl italic '>babila</h1>
     </div>
 
     <div className='flex'>

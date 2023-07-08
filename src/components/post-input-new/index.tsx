@@ -44,12 +44,6 @@ const PostInputNew = () => {
 
                     <form onSubmit={handleFormSubmit}>
                         <div className='bg-white w-[95vw] mx-auto rounded-md grid p-3' >
-
-
-
-
-
-
                             <header className="flex gap-2 border-b border-gray-100">
 
                                 <div>
@@ -148,7 +142,7 @@ const PostInputNew = () => {
 
 
 
-            <button onClick={() => { setIsOpen(true) }} className="w-full border-2 border-purple-0 rounded-full  grid grid-cols-[50px_auto_60px] items-center py-1 bg-gray-100  ">
+            <button onClick={() => { setIsOpen(true) }} className="w-full  rounded-full  grid grid-cols-[50px_auto_60px] items-center py-1 bg-gray-100  ">
 
                 <button className="flex items-center justify-center">
                     <Image
@@ -162,10 +156,10 @@ const PostInputNew = () => {
                     />
                 </button>
 
-                <p className=" text-purple-0 font-bold   ">What is on your mind?</p>
+                <p className=" text-purple-0 font-bold  text-left pl-2">What is on your mind?</p>
 
                 <button className="flex items-center justify-center">
-                    <FaImages className=" stroke-red-400" size={20} />
+                    <FaImages color="#86579F" className=" stroke-red-400" size={22} />
                 </button>
 
 
