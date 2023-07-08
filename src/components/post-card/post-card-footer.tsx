@@ -128,7 +128,7 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
         </Dialog.Panel>
       </Dialog>
 
-      <div className="items-center flex justify-around gap-2 py-3  border-b border-gray-200 text-purple-0 ">
+      <div className="items-center flex justify-around gap-2 py-3   text-purple-0 ">
         <button
           type="button"
           className={clsx([

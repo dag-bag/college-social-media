@@ -71,11 +71,11 @@ const PostCard = ({ post }: PostCardProps) => {
         <Dialog.Panel >
 
           <div className='bg-white w-[95vw] mx-auto rounded-md grid p-5 gap-2 text-purple-0' >
-            <button className=' flex items-center  gap-2 mb-3'><FiCopy size={20} />Copy post link</button>
+            <button className=' flex items-center  gap-3 mb-3 '><FiCopy size={20} />Copy post link</button>
             <button onClick={() => {
               setIsOpen(false);
               setIsOpen2(true)
-            }} className=' flex items-center  gap-2'><GoAlert size={20} />Report post</button>
+            }} className=' flex items-center  gap-3 '><GoAlert size={20} />Report post</button>
           </div>
 
         </Dialog.Panel>
@@ -84,13 +84,13 @@ const PostCard = ({ post }: PostCardProps) => {
       <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-[100] flex items-center justify-center'} open={isOpen2} onClose={() => setIsOpen2(false)}>
         <Dialog.Panel >
 
-          <div className='bg-white text-purple-0 w-[95vw] mx-auto rounded-md grid px-5 py-3' >
-            <h2 className='font-bold mb-2 text-lg p-b'>Why are you reporting this post?</h2>
-            <div className='grid gap-2'>
+          <div className='bg-white text-purple-0 w-[95vw] mx-auto rounded-md grid ' >
+            <h2 className='font-bold mb-2 text-xl  p-5 pb-0'>Why are you reporting this post?</h2>
+            <div className='grid'>
               {reports.map(rep => (
-                <div onClick={() => { setReport(rep) }} className='flex items-center gap-2.5 '>
-                  <div className={`w-[15px] h-[15px]  rounded-full ${report == rep ? 'border-purple-0 border-2' : 'bg-gray-200'}`}></div>
-                  <span className=''> {rep}</span>
+                <div onClick={() => { setReport(rep) }} className={`flex items-center gap-2.5 py-3 px-5 ${report == rep ? 'bg-gray-100' : ''}`}>
+                  <div className={`w-[20px] h-[20px]  rounded-full ${report == rep ? 'border-purple-0 border-2' : 'bg-gray-200'}`}></div>
+                  <span className='text-md'> {rep}</span>
                 </div>
               ))}
             </div>
@@ -103,7 +103,7 @@ const PostCard = ({ post }: PostCardProps) => {
               </div>
             )}
 
-            <button onClick={() => setIsOpen2(false)} disabled={report == ''} className='bg-purple-0 py-1.5 text-white rounded-md mt-3 disabled:opacity-30'>Submit</button>
+            <button onClick={() => setIsOpen2(false)} disabled={report == ''} className='bg-purple-0 py-1.5 text-white rounded-md m-5 disabled:opacity-30'>Submit</button>
 
           </div>
 
@@ -112,7 +112,7 @@ const PostCard = ({ post }: PostCardProps) => {
 
 
 
-      <div className=" bg-primary-0 text-purple-0  w-full  rounded-lg cursor-pointer ">
+      <div className=" bg-primary-0 text-purple-0 w-full cursor-pointer shadow-[0px_5px_5px_#8080802c] pt-2 ">
         <div className='grid '>
           <div>
             <header className='grid grid-cols-[40px_auto_50px] gap-2 px-2'>
