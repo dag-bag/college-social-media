@@ -95,15 +95,18 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
       <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-50 flex items-end justify-center'} open={isOpen} onClose={() => setIsOpen(false)}>
         <Dialog.Panel >
 
-          <div className='bg-white  w-screen rounded-t-xl h-[600px] grid grid-rows-[40px_460px_100px]  py-3  overflow-hidden ' >
+          <div className='bg-purple-100  w-screen rounded-t-xl h-[600px] grid grid-rows-[40px_460px_100px]  py-3  overflow-hidden ' >
 
-            <header className=' rounded-t-xl bg-transparent flex items-center bg-red-500-- flex-col  border-gray-200 border-b pb-2'>
+            <header className=' rounded-t-xl bg-transparent flex items-center  flex-col '>
 
-              <p className='font-semibold'>{comments?.length} Comments</p>
+              <p className='font-semibold text-purple-0'>{comments?.length} Comments</p>
+
+              <div className='border-purple-0 border-t-2 w-[90%] mt-3'>&nbsp;</div>
+
             </header>
 
 
-            <main className='px-2 mt-2 overflow-y-scroll' >
+            <main className='px-5 mt-2  overflow-y-scroll ' >
 
               {isCommentsSuccess ? (
                 <CommentsList comments={comments} />
@@ -121,43 +124,6 @@ const PostCardFooter = ({ post }: PostCardFooterProps) => {
 
         </Dialog.Panel>
       </Dialog>
-
-
-
-      {/* {comment && <div
-
-        className="fixed top-0 left-0 w-full h-full bg-black z-50 bg-opacity-80 flex items-end ">
-        <div className='bg-white w-full h-[90%] rounded-t-xl overflow-hidden'>
-          <header onClick={handleToggleMessages} className='flex flex-col items-center justify-center py-3 '>
-
-            <div className='flex flex-col gap-[2px] mb-2'>
-              <div className='w-[60px] bg-gray-400 h-[2px] rounded-full'></div>
-              <div className='w-[60px] bg-gray-400 h-[2px] rounded-full'></div>
-
-            </div>
-
-            <p className='font-semibold'>{comments?.length} Comments</p>
-          </header>
-          <main className=' h-full grid grid-rows-[auto_150px] '>
-            <section className='px-5 overflow-scroll'>
-              <section className='border-t-2 border-gray-200  pt-5'>
-                {isCommentsSuccess ? (
-                  <CommentsList comments={comments} />
-                ) : (
-                  <Loading height={200} />
-                )}
-              </section>
-            </section>
-            <section className='border-t border-gray-200 px-5'>
-              <CommentInput onMessageSubmit={handleAddComment} />
-
-            </section>
-
-          </main>
-        </div>
-
-
-      </div >} */}
 
       <div className="flex items-center  pt-2 pr-2 border-t border-gray-200">
         <button

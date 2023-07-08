@@ -36,13 +36,12 @@ const CommentInput = ({ onMessageSubmit }: CommentInputProps) => {
       <input
 
         ref={textareaRef}
-        placeholder="Add your comment"
+        placeholder="Enter your comment..."
         value={commentMessageValue}
         onChange={({ target }) => setCommentMessageValue(target.value)}
+        className='border-2  py-4 px-2 rounded-md placeholder:text-purple-0' type="text" />
 
-        className='border-2  py-4 px-2 rounded-md' type="text" />
-
-      <button className='font-[400]' type='submit' disabled={submitDisabled}>Post</button>
+      <button className='font-bold text-purple-0' type='submit' disabled={submitDisabled}>Post</button>
 
     </form>
   );

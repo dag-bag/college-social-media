@@ -17,7 +17,7 @@ const UserProfilePicture = ({ userID, imageUrl }: UserProfileImage) => (
         height="40"
         layout="fixed"
         alt=""
-        className="rounded-lg"
+        className="rounded-full"
         objectFit="cover"
       />
     </a>

@@ -27,6 +27,7 @@ const MainLayout = ({ children }: LayoutProps) => (
         </div>
       </div>
     </div>
+    <Footer />
     <ToastContainer autoClose={3000} position="bottom-right" />
   </div>
 );
@@ -34,9 +35,18 @@ const MainLayout = ({ children }: LayoutProps) => (
 export default MainLayout;
 
 
+import { FiHome, FiSearch, FiBell, FiUsers } from 'react-icons/fi'
+
 
 const Footer = () => {
   return (
-    <div></div>
+    <div className='grid grid-cols-4 fixed bottom-0 left-0 h-[50px] bg-gray-200 w-full'>
+
+      <button className='flex items-center justify-center px-3'><FiHome size={22} /></button>
+      <button className='flex items-center justify-center px-3'><FiSearch size={22} /></button>
+      <button className='flex items-center justify-center px-3'><FiBell size={22} /></button>
+      <button className='flex items-center justify-center px-3'><FiUsers size={22} /></button>
+
+    </div>
   )
 }

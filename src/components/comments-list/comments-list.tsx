@@ -43,7 +43,7 @@ const CommentsList = ({
   return (
     <div
       className={clsx([
-        'w-full ',
+        'w-full  ',
         depth !== 0 &&
         'pl-5 md:pl-10 border-l-2 border-l-neutral-300 dark:border-l-primary-dark-300',
         depth > 3 && '!pl-0 border-l-0',
