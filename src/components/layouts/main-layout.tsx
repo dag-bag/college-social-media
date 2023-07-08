@@ -41,7 +41,7 @@ import { useState } from "react"
 
 const Footer = () => {
   const { pathname, push } = useRouter()
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <>
       <Dialog className={'bg-black bg-opacity-50 w-full h-full fixed top-0 left-0 z-50 flex items-end justify-center '} open={isOpen} onClose={() => setIsOpen(false)}>
