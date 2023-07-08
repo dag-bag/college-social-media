@@ -13,6 +13,7 @@ import PostCardLink from './post-card-link';
 import RepostBadge from './repost-badge';
 import ReactTimeAgo from 'react-time-ago';
 
+import { toast } from 'react-toastify';
 import { FiCopy } from "react-icons/fi"
 import { GoAlert } from "react-icons/go"
 
@@ -63,6 +64,14 @@ const PostCard = ({ post }: PostCardProps) => {
     );
   };
 
+
+  const copy = () => {
+    toast('copied', {
+      type: 'success',
+    });
+    navigator.clipboard.writeText(`https://college-social-media.vercel.app/post/${post.id}`)
+  }
+
   return (
 
     <>
@@ -71,7 +80,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <Dialog.Panel >
 
           <div className='bg-white w-[95vw] mx-auto rounded-md grid p-5 gap-2 text-purple-0' >
-            <button className=' flex items-center  gap-3 mb-3 '><FiCopy size={20} />Copy post link</button>
+            <button onClick={copy} className=' flex items-center  gap-3 mb-3 '><FiCopy size={20} />Copy post link</button>
             <button onClick={() => {
               setIsOpen(false);
               setIsOpen2(true)
