@@ -9,7 +9,7 @@ import SearchIcon from '@/components/common/icons/search';
 import type { SearchEntryType } from '@/types/db';
 import useSearchHistory from './use-search-history';
 
-const SearchBar = () => {
+const SearchBar = ({ close }: any) => {
   const router = useRouter();
 
   const [searchPhrase, setSearchPhrase] = useState('');
@@ -81,6 +81,7 @@ const SearchBar = () => {
         )}
         {suggestionData.map((searchEntry, index) => (
           <SearchCard
+            close={close}
             searchEntry={searchEntry}
             key={searchEntry.id}
             isSelected={selectedItemIndex === index}

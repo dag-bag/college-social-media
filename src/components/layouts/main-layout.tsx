@@ -49,7 +49,7 @@ const Footer = () => {
 
           <div className='bg-purple-100  w-screen rounded-t-xl h-[600px] py-3' >
 
-            <SearchBar />
+            <SearchBar close={() => { setIsOpen(false) }} />
           </div>
 
         </Dialog.Panel>
