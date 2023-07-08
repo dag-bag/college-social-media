@@ -107,7 +107,7 @@ const CreatePost = () => {
                         <div className="grid grid-cols-2 gap-5  px-3 py-2 rounded-full mb-2">
                             <label htmlFor="post-on" className=" font-bold">Post in </label>
                             <select id="post-on" name="post-on" className=" bg-transparent"  >
-                                {['FCB', 'chinese community', 'ramen lovers', 'gadjets', 'sport', 'entertaiment'].map((opt) => <option className="capitalize" value={opt}>{opt}</option>)}
+                                {['My Profile', 'FCB', 'Chinese Community', 'Ramen lovers', 'gadjets', 'sport', 'entertaiment'].map((opt) => <option className="capitalize" value={opt}>{opt}</option>)}
                             </select>
                         </div>
 
