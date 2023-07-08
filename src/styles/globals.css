@@ -4,6 +4,9 @@
 @tailwind utilities;
 
 
+* {
+  user-select: none;
+}
 
 html {
   font-family: Rubik;

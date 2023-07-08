@@ -1,12 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import Link from 'next/link';
 import React from 'react';
-import SearchBar from '@/components/header/search-bar';
 import Menu from '@/components/header/menu';
-import { FiUser } from "react-icons/fi";
-import DesktopNavigation from './desktop-navigation';
-
-import { FaUserAlt } from "react-icons/fa"
 import { BiMessageRounded } from "react-icons/bi"
 import { AiFillQuestionCircle } from 'react-icons/ai'
 
@@ -18,7 +13,8 @@ const Header = () => (
 
 
     <div className='flex items-center justify-center '>
-      <h1 className='font-bold text-3xl italic '>babila</h1>
+      <Link href={'/'}>
+        <h1 className='font-bold text-3xl italic cursor-pointer'>babila</h1></Link>
     </div>
 
     <div className='flex'>

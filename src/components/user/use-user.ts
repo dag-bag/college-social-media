@@ -4,7 +4,6 @@ import { FilterData } from '@/components/user-profile/types';
 
 const useUser = () => {
   const router = useRouter();
-
   const userId = router.query.userId as string;
   const section = router.query?.section as string | undefined;
   const filter = router.query?.filter as string | undefined;
@@ -41,13 +40,13 @@ const useUser = () => {
     },
     {
       id: '2',
-      filterName: 'images',
-      displayName: 'images',
+      filterName: 'ratings',
+      displayName: 'ratings',
     },
     {
       id: '3',
-      filterName: 'likes',
-      displayName: 'likes',
+      filterName: 'CV',
+      displayName: 'cv',
     },
   ];
   return {
