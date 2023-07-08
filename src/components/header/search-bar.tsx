@@ -49,20 +49,22 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative mx-5 lg:mx-10 w-[350px]" {...wrapperProps}>
-      <div className="relative">
-        <div className="absolute top-[10px] md:top-[15px] left-2 md:left-3 pointer-events-none">
-          <SearchIcon />
-        </div>
+    <div className="relative  px-5" {...wrapperProps}>
+      <div className="relative w-full">
+
         <input
           {...inputProps}
           value={searchPhrase}
           onChange={handleOnChange}
-          className="w-full  pl-8 p-2 md:p-3 md:pl-10 bg-primary-100 dark:bg-primary-dark-200 rounded-full focus:outline-blue-500 outline-2"
+          placeholder="Search goes here.."
+          className="w-full py-3 px-3 bg-primary-100 dark:bg-primary-dark-200 rounded-full focus:outline-blue-500 outline-2"
         />
+
       </div>
 
-      <div className="fixed md:absolute left-0 top-14 bg-white  dark:bg-primary-dark-100 md:w-full rounded-lg shadow-lg overflow-hidden w-screen">
+
+
+      <div className=" bg-white mt-2  w-full rounded-lg shadow-lg overflow-y-scroll max-h-[300px] ">
         {!!suggestionData.length && !searchPhrase && (
           <div className="flex justify-between mx-4 my-2 items-baseline">
             <div className="text-md font-semibold font-poppins  text-primary-800 dark:text-primary-dark-600">
