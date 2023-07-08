@@ -134,7 +134,7 @@ const PostCard = ({ post }: PostCardProps) => {
             </header>
 
             <main className='mt-2'>
-              <p className='text-sm mb-2'>{post.content}</p>
+              <p className=' mb-2 '>{post.content}</p>
               <ImagesGrid images={post.images} />
             </main>
 
