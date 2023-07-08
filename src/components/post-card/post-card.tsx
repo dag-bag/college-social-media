@@ -41,7 +41,6 @@ const PostCard = ({ post }: PostCardProps) => {
     setIsOpen(!isOpen)
   }
 
-  console.log(post)
 
   const router = useRouter();
 
