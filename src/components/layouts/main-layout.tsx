@@ -4,7 +4,6 @@ import { ToastContainer } from 'react-toastify';
 
 import Header from '../header/header';
 import BackButton from '../common/back-button';
-import SuggestionList from '../community/suggestion-list';
 import { Dialog } from '@headlessui/react';
 import SearchBar from '../header/search-bar';
 

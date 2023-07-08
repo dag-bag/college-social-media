@@ -1,18 +1,18 @@
 import type { GetServerSidePropsContext, NextPage } from 'next';
 import { unstable_getServerSession } from 'next-auth/next';
 import React from 'react';
+import dynamic from 'next/dynamic';
 import MainLayout from '@/components/layouts/main-layout';
 import PostList from '@/components/post/post-list';
 import ModalWrapper from '@/components/common/modal-wrapper';
 import PostDetails from '@/components/post/post-details';
-import PostsSortPanel from '@/components/common/posts-sort-panel';
 import Head from 'next/head';
 import useHome from '@/components/home/use-home';
 import HomeFallbackCard from '@/components/home/home-fallback-card';
-import HomePostIput from '@/components/home/home-post-input';
 import { authOptions } from './api/auth/[...nextauth]';
+const PostInputView = dynamic(() => import('@/components/post-input-new'), { ssr: false })
 
-import PostInputNew from '@/components/post-input-new';
+
 
 const Home: NextPage = () => {
   const {
@@ -28,16 +28,14 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Babila</title>
-        <meta property="og:title" content="Twitterek" />
       </Head>
       <MainLayout>
 
         <div className='px-2 mt-5'>
-          <PostInputNew />
+          <PostInputView />
         </div>
 
 
-        {/* <PostsSortPanel pathname="/" /> */}
         {isPostsNotExists ? (
           <HomeFallbackCard />
         ) : (
