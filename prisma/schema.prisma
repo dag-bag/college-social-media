@@ -47,7 +47,7 @@ model User {
   emailVerified                  DateTime?
   image                          String?                          @db.Text
   bannerImage                    String?                          @db.Text
-  bio                            String                           @default("") @db.Text
+  bio                            String                            @default("") @db.VarChar(255)
   accounts                       Account[]
   sessions                       Session[]
   followedBy                     User[]                           @relation("UserFollows")
@@ -259,9 +259,9 @@ model PostTag {
 model Community {
   id          String               @id @default(uuid())
   name        String               @unique @db.VarChar(100)
-  image       String               @default("") @db.Text
-  bannerImage String               @default("") @db.Text
-  description String               @default("") @db.Text
+  image       String           @default("") @db.VarChar(255)
+  bannerImage String                @default("") @db.VarChar(255)
+  description String              @default("") @db.VarChar(255)
   posts       Post[]
   members     UserCommunity[]
   favouriteBy FavouriteCommunity[]
